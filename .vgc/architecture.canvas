@@ -1,0 +1,330 @@
+{
+  "vv": {
+    "name": "AgentOps Architecture",
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "bookstore-ui",
+      "type": "text",
+      "x": 50,
+      "y": 50,
+      "width": 120,
+      "height": 60,
+      "label": "🌐 Bookstore UI",
+      "vv": {
+        "nodeType": "frontend",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "port": 3000,
+        "tech": "React + Vite"
+      }
+    },
+    {
+      "id": "traefik",
+      "type": "text",
+      "x": 250,
+      "y": 50,
+      "width": 120,
+      "height": 60,
+      "label": "🏗️ Traefik",
+      "vv": {
+        "nodeType": "infrastructure",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "port": 80,
+        "tech": "Traefik"
+      }
+    },
+    {
+      "id": "store-api",
+      "type": "text",
+      "x": 450,
+      "y": 50,
+      "width": 120,
+      "height": 60,
+      "label": "🔌 Store API",
+      "vv": {
+        "nodeType": "api",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "port": 3001,
+        "tech": "Node.js + Koa + TypeORM"
+      }
+    },
+    {
+      "id": "warehouse-alpha",
+      "type": "text",
+      "x": 650,
+      "y": 50,
+      "width": 120,
+      "height": 60,
+      "label": "🔌 Warehouse Alpha",
+      "vv": {
+        "nodeType": "api",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "port": 3002,
+        "tech": "Node.js + Koa + TypeORM"
+      }
+    },
+    {
+      "id": "warehouse-beta",
+      "type": "text",
+      "x": 850,
+      "y": 50,
+      "width": 120,
+      "height": 60,
+      "label": "🔌 Warehouse Beta",
+      "vv": {
+        "nodeType": "api",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "port": 3003,
+        "tech": "Node.js + Koa + TypeORM"
+      }
+    },
+    {
+      "id": "agent-server",
+      "type": "text",
+      "x": 450,
+      "y": 200,
+      "width": 120,
+      "height": 60,
+      "label": "🔌 Agent Server",
+      "vv": {
+        "nodeType": "api",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "port": 3004,
+        "tech": "Node.js + Express"
+      }
+    },
+    {
+      "id": "coding-agent",
+      "type": "text",
+      "x": 250,
+      "y": 200,
+      "width": 120,
+      "height": 60,
+      "label": "🤖 Coding Agent",
+      "vv": {
+        "nodeType": "agent",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "tech": "AI Agent"
+      }
+    },
+    {
+      "id": "debugging-agent",
+      "type": "text",
+      "x": 650,
+      "y": 200,
+      "width": 120,
+      "height": 60,
+      "label": "🤖 Debugging Agent",
+      "vv": {
+        "nodeType": "agent",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "tech": "AI Agent"
+      }
+    },
+    {
+      "id": "store-db",
+      "type": "text",
+      "x": 450,
+      "y": 350,
+      "width": 120,
+      "height": 60,
+      "label": "🗄️ Store DB",
+      "vv": {
+        "nodeType": "database",
+        "shape": "cylinder"
+      },
+      "metadata": {
+        "tech": "PostgreSQL"
+      }
+    },
+    {
+      "id": "warehouse-alpha-db",
+      "type": "text",
+      "x": 650,
+      "y": 350,
+      "width": 120,
+      "height": 60,
+      "label": "🗄️ Warehouse Alpha DB",
+      "vv": {
+        "nodeType": "database",
+        "shape": "cylinder"
+      },
+      "metadata": {
+        "tech": "PostgreSQL"
+      }
+    },
+    {
+      "id": "warehouse-beta-db",
+      "type": "text",
+      "x": 850,
+      "y": 350,
+      "width": 120,
+      "height": 60,
+      "label": "🗄️ Warehouse Beta DB",
+      "vv": {
+        "nodeType": "database",
+        "shape": "cylinder"
+      },
+      "metadata": {
+        "tech": "PostgreSQL"
+      }
+    },
+    {
+      "id": "loki",
+      "type": "text",
+      "x": 50,
+      "y": 350,
+      "width": 120,
+      "height": 60,
+      "label": "📊 Loki",
+      "vv": {
+        "nodeType": "monitoring",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "tech": "Grafana Loki"
+      }
+    },
+    {
+      "id": "grafana",
+      "type": "text",
+      "x": 250,
+      "y": 350,
+      "width": 120,
+      "height": 60,
+      "label": "📊 Grafana",
+      "vv": {
+        "nodeType": "monitoring",
+        "shape": "rectangle"
+      },
+      "metadata": {
+        "port": 8080,
+        "tech": "Grafana"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "ui-to-traefik",
+      "fromNode": "bookstore-ui",
+      "toNode": "traefik",
+      "type": "http",
+      "label": "🌐 HTTP"
+    },
+    {
+      "id": "traefik-to-store",
+      "fromNode": "traefik",
+      "toNode": "store-api",
+      "type": "http",
+      "label": "🌐 Route"
+    },
+    {
+      "id": "traefik-to-warehouse-alpha",
+      "fromNode": "traefik",
+      "toNode": "warehouse-alpha",
+      "type": "http",
+      "label": "🌐 Route"
+    },
+    {
+      "id": "traefik-to-warehouse-beta",
+      "fromNode": "traefik",
+      "toNode": "warehouse-beta",
+      "type": "http",
+      "label": "🌐 Route"
+    },
+    {
+      "id": "store-to-warehouse-alpha",
+      "fromNode": "store-api",
+      "toNode": "warehouse-alpha",
+      "type": "http",
+      "label": "🌐 Service API"
+    },
+    {
+      "id": "store-to-warehouse-beta",
+      "fromNode": "store-api",
+      "toNode": "warehouse-beta",
+      "type": "http",
+      "label": "🌐 Service API"
+    },
+    {
+      "id": "store-to-store-db",
+      "fromNode": "store-api",
+      "toNode": "store-db",
+      "type": "database_connection",
+      "label": "🔗 Database"
+    },
+    {
+      "id": "warehouse-alpha-to-db",
+      "fromNode": "warehouse-alpha",
+      "toNode": "warehouse-alpha-db",
+      "type": "database_connection",
+      "label": "🔗 Database"
+    },
+    {
+      "id": "warehouse-beta-to-db",
+      "fromNode": "warehouse-beta",
+      "toNode": "warehouse-beta-db",
+      "type": "database_connection",
+      "label": "🔗 Database"
+    },
+    {
+      "id": "agent-to-coding",
+      "fromNode": "agent-server",
+      "toNode": "coding-agent",
+      "type": "event",
+      "label": "📡 Tasks"
+    },
+    {
+      "id": "agent-to-debugging",
+      "fromNode": "agent-server",
+      "toNode": "debugging-agent",
+      "type": "event",
+      "label": "📡 Tasks"
+    },
+    {
+      "id": "store-to-loki",
+      "fromNode": "store-api",
+      "toNode": "loki",
+      "type": "event",
+      "label": "📡 Logs"
+    },
+    {
+      "id": "warehouse-alpha-to-loki",
+      "fromNode": "warehouse-alpha",
+      "toNode": "loki",
+      "type": "event",
+      "label": "📡 Logs"
+    },
+    {
+      "id": "warehouse-beta-to-loki",
+      "fromNode": "warehouse-beta",
+      "toNode": "loki",
+      "type": "event",
+      "label": "📡 Logs"
+    },
+    {
+      "id": "loki-to-grafana",
+      "fromNode": "loki",
+      "toNode": "grafana",
+      "type": "http",
+      "label": "🌐 Data Source"
+    }
+  ]
+}

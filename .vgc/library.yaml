@@ -1,0 +1,59 @@
+version: "1.0.0"
+name: "AgentOps Component Library"
+
+nodeComponents:
+  frontend:
+    category: "ui"
+    icon: "🌐"
+    description: "User interface components"
+    
+  api:
+    category: "service"
+    icon: "🔌"
+    description: "API services"
+    
+  database:
+    category: "data"
+    icon: "🗄️"
+    description: "Data storage"
+    
+  agent:
+    category: "ai"
+    icon: "🤖"
+    description: "AI agents"
+    
+  middleware:
+    category: "infrastructure"
+    icon: "⚙️"
+    description: "Middleware components"
+    
+  monitoring:
+    category: "observability"
+    icon: "📊"
+    description: "Monitoring and logging"
+    
+  infrastructure:
+    category: "infrastructure"
+    icon: "🏗️"
+    description: "Infrastructure components"
+
+edgeComponents:
+  http:
+    icon: "🌐"
+    description: "HTTP communication"
+    
+  grpc:
+    icon: "🔀"
+    description: "gRPC communication"
+    
+  database_connection:
+    icon: "🔗"
+    description: "Database connection"
+    
+  event:
+    icon: "📡"
+    description: "Event-driven communication"
+    
+  auth:
+    icon: "🔐"
+    description: "Authentication/authorization"
