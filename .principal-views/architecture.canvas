@@ -179,6 +179,8 @@
       "id": "ui-to-traefik",
       "fromNode": "bookstore-ui",
       "toNode": "traefik",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "🌐 HTTP",
       "color": "#3b82f6"
     },
@@ -186,6 +188,8 @@
       "id": "traefik-to-store",
       "fromNode": "traefik",
       "toNode": "store-api",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "🌐 Route",
       "color": "#3b82f6"
     },
@@ -193,6 +197,8 @@
       "id": "traefik-to-warehouse-alpha",
       "fromNode": "traefik",
       "toNode": "warehouse-alpha",
+      "fromSide": "left",
+      "toSide": "top",
       "label": "🌐 Route",
       "color": "#3b82f6"
     },
@@ -200,6 +206,8 @@
       "id": "traefik-to-warehouse-beta",
       "fromNode": "traefik",
       "toNode": "warehouse-beta",
+      "fromSide": "right",
+      "toSide": "top",
       "label": "🌐 Route",
       "color": "#3b82f6"
     },
@@ -207,6 +215,8 @@
       "id": "store-to-warehouse-alpha",
       "fromNode": "store-api",
       "toNode": "warehouse-alpha",
+      "fromSide": "left",
+      "toSide": "top",
       "label": "🌐 Service API",
       "color": "green"
     },
@@ -214,6 +224,8 @@
       "id": "store-to-warehouse-beta",
       "fromNode": "store-api",
       "toNode": "warehouse-beta",
+      "fromSide": "right",
+      "toSide": "top",
       "label": "🌐 Service API",
       "color": "green"
     },
@@ -221,6 +233,8 @@
       "id": "store-to-store-db",
       "fromNode": "store-api",
       "toNode": "store-db",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "🔗 Database",
       "color": "purple"
     },
@@ -228,6 +242,8 @@
       "id": "warehouse-alpha-to-db",
       "fromNode": "warehouse-alpha",
       "toNode": "warehouse-alpha-db",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "🔗 Database",
       "color": "purple"
     },
@@ -235,6 +251,8 @@
       "id": "warehouse-beta-to-db",
       "fromNode": "warehouse-beta",
       "toNode": "warehouse-beta-db",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "🔗 Database",
       "color": "purple"
     },
@@ -242,6 +260,8 @@
       "id": "agent-to-coding",
       "fromNode": "agent-server",
       "toNode": "coding-agent",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "📡 Tasks",
       "color": "orange"
     },
@@ -249,6 +269,8 @@
       "id": "agent-to-debugging",
       "fromNode": "agent-server",
       "toNode": "debugging-agent",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "📡 Tasks",
       "color": "orange"
     },
@@ -256,6 +278,8 @@
       "id": "store-to-loki",
       "fromNode": "store-api",
       "toNode": "loki",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "📡 Logs",
       "color": "red"
     },
@@ -263,6 +287,8 @@
       "id": "warehouse-alpha-to-loki",
       "fromNode": "warehouse-alpha",
       "toNode": "loki",
+      "fromSide": "right",
+      "toSide": "left",
       "label": "📡 Logs",
       "color": "red"
     },
@@ -270,6 +296,8 @@
       "id": "warehouse-beta-to-loki",
       "fromNode": "warehouse-beta",
       "toNode": "loki",
+      "fromSide": "left",
+      "toSide": "right",
       "label": "📡 Logs",
       "color": "red"
     },
@@ -277,6 +305,8 @@
       "id": "loki-to-grafana",
       "fromNode": "loki",
       "toNode": "grafana",
+      "fromSide": "bottom",
+      "toSide": "top",
       "label": "🌐 Data Source",
       "color": "cyan"
     }
